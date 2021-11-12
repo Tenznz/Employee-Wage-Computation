@@ -1,6 +1,7 @@
 package com.bridgelabz.emp;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class EmployeeWage implements EmployeeService {
 	public static final int IS_PART_TIME = 1;
@@ -27,7 +28,19 @@ public class EmployeeWage implements EmployeeService {
 		}
 	}
 
-	
+	@Override
+	public int getTotalWage(String company) {
+		int totalWage = 0;
+
+		for (int i = 0; i < companyEmpWageList.size(); i++) {
+			if (company.equals(companyEmpWageList.get(i).getCompany())) {
+				totalWage = companyEmpWageList.get(i).getTotalEmpWage();
+				break;
+			}
+		}
+		return totalWage;
+	}
+
 
 	private int computeEmpWage(CompanyEmployeeWage companyEmpWage) {
 		// variables
@@ -59,6 +72,15 @@ public class EmployeeWage implements EmployeeService {
 		employeeWage.addCompanyEmpWage("DMart", 20, 2, 10);
 		employeeWage.addCompanyEmpWage("jio", 10, 4, 20);
 		employeeWage.computeEmpWage();
+		System.out.println("Enter the Company name");
+		Scanner sc=new Scanner(System.in);
+		String company=sc.next();
+		int totalCompanyWage=employeeWage.getTotalWage(company);
+		if(totalCompanyWage>0) {
+		System.out.print(company +" = " +totalCompanyWage);
+		}
+		else
+			System.out.print("There is no company name with "+company);
 		
 	}
 

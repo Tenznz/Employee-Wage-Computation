@@ -6,4 +6,5 @@ public interface EmployeeService {
 
 	public void computeEmpWage();
 
+	public int getTotalWage(String company);
 }
