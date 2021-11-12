@@ -15,6 +15,14 @@ public class CompanyEmployeeWage {
 		this.maxHoursPerMonth = maxHoursPerMonth;
 	}
 
+	public String getCompany() {
+		return company;
+	}
+
+	public int getTotalEmpWage() {
+		return totalEmpWage;
+	}
+
 	public void setTotalEmpWage(int totalEmpWage) {
 		this.totalEmpWage = totalEmpWage;
 	}
@@ -33,6 +41,7 @@ public class CompanyEmployeeWage {
 
 	@Override
 	public String toString() {
-		return "Total Emp Wage for Company: " + company + " is: " + totalEmpWage;
+		return "CompanyEmployeeWage [company=" + company + ", empRatePerHour=" + empRatePerHour + ", numOfWorkingDays="
+				+ numOfWorkingDays + ", maxHoursPerMonth=" + maxHoursPerMonth + "]";
 	}
 }
